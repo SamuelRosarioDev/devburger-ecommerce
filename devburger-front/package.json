@@ -2,9 +2,11 @@
   "name": "devburger-front",
   "version": "0.0.0",
   "dependencies": {
+    "@hookform/resolvers": "^3.9.0",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
-    "styled-components": "^6.1.13"
+    "styled-components": "^6.1.13",
+    "yup": "^1.4.0"
   },
   "devDependencies": {
     "@biomejs/biome": "1.9.3",
@@ -23,5 +25,9 @@
     "lint": "eslint .",
     "preview": "vite preview"
   },
-  "type": "module"
+  "type": "module",
+  "module": "index.ts",
+  "peerDependencies": {
+    "typescript": "^5.0.0"
+  }
 }
