@@ -1,12 +1,16 @@
 import { yupResolver } from "@hookform/resolvers/yup";
 import { useForm } from "react-hook-form";
+import { useNavigate } from "react-router-dom";
+import { toast } from "react-toastify";
 import * as yup from "yup";
 import Logo from "../../assets/logo.svg";
+import { api } from "../../services/api";
 import {
 	Container,
 	Form,
 	InputContainer,
 	LeftContainer,
+	Link,
 	RightContainer,
 	Title,
 } from "./styles";
@@ -14,6 +18,7 @@ import {
 import { Button } from "../../components/Button";
 
 export function Login() {
+	const navigate = useNavigate();
 	const schema = yup
 		.object({
 			email: yup
@@ -33,7 +38,35 @@ export function Login() {
 		formState: { errors },
 	} = useForm({ resolver: yupResolver(schema) });
 
-	const onSubmit = (data) => console.log(data);
+	const onSubmit = async (data) => {
+		try {
+			const {
+				status,
+				data: { token },
+			} = await api.post(
+				"/session",
+				{
+					email: data.email,
+					password: data.password,
+				},
+				{ validateStatus: () => true },
+			);
+
+			if (status === 200 || status === 201) {
+				toast.success("Seja Bem-vindo(a)");
+				localStorage.setItem("token", token);
+				setTimeout(() => {
+					navigate("/");
+				}, 2000);
+			} else if (status === 401) {
+				toast.error("Email ou Senha Incorretos");
+			} else {
+				throw new Error();
+			}
+		} catch (error) {
+			toast.error("Falha no sistema! Tente novamente.");
+		}
+	};
 
 	return (
 		<Container>
@@ -49,17 +82,17 @@ export function Login() {
 					<InputContainer>
 						<label htmlFor="email">Email</label>
 						<input type="email" {...register("email")} />
-						<p>{errors.email?.message}</p>
+						<p>{errors?.email?.message}</p>
 					</InputContainer>
 					<InputContainer>
 						<label htmlFor="senha">Senha</label>
 						<input type="password" {...register("password")} />
-						<p>{errors.password?.message}</p>
-						</InputContainer>
+						<p>{errors?.password?.message}</p>
+					</InputContainer>
 					<Button type="submit">Entrar</Button>
 				</Form>
 				<p>
-					Não possui conta? <a href="#teste">Clique aqui</a>
+					Não possui conta? <Link to="/cadastro">Clique aqui</Link>
 				</p>
 			</RightContainer>
 		</Container>

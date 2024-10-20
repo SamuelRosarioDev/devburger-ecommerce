@@ -15,12 +15,12 @@ class CategoryController {
 		const { admin: isAdmin } = await User.findByPk(request.userId);
 
 		if (!isAdmin) {
-			return response.status(401).json();
+		  return response.status(401).json();
 		}
 
-		const { filename: path } = request.file;
 		const { name } = request.body;
-
+		const { filename: path } = request.file;
+		
 		const categoryExists = await Category.findOne({ where: { name } });
 
 		if (categoryExists) {

@@ -1,3 +1,4 @@
+import { Link as ReactLink } from "react-router-dom";
 import styled from "styled-components";
 import backgroundLogin from "../../assets/background-login.svg";
 import background from "../../assets/background.svg";
@@ -41,7 +42,7 @@ export const RightContainer = styled.div`
     max-width: 50%;
 
     p{
-        color: #fff !important;
+        color: #fff;
         font-size: 18px;
         font-weight: 800;
         a{
@@ -93,4 +94,17 @@ export const InputContainer = styled.div`
         font-family: 600;
         color: #fff;
     }
+
+    p{
+        font-size: 14px;
+        line-height: 80%;
+        font-weight: 600;
+        color: #cf3057;
+        height: 10px;
+    }
 `;
+
+export const Link = styled(ReactLink)`
+    text-decoration: none;
+    color: #fff;
+`
