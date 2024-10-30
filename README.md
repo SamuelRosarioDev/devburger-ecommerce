@@ -34,7 +34,7 @@ Este projeto é um <code>E-Commerce</code> de hamburgeria, com <code>Crud</code>
     <img width=10% src="https://img.shields.io/badge/-Gmail-%23333?style=for-the-badge&logo=gmail&logoColor=white" target="_blank">
   </a>
   <a href="https://www.linkedin.com/in/samuelwsrosario/" target="_blank">
-    <img width=10% src="https://img.shields.io/badge/-LinkedIn-%230077B5?style=for-the-badge&logo=linkedin&logoColor=white" target="_blank">
+    <img width=12% src="https://img.shields.io/badge/-LinkedIn-%230077B5?style=for-the-badge&logo=linkedin&logoColor=white" target="_blank">
   </a> 
 </div>
 
