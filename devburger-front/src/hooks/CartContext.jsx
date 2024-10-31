@@ -21,7 +21,10 @@ export const CartProvider = ({ children }) => {
 		updateLocalStorage(newProductsInCart);
 	};
 
-	const clearCart = () => {};
+	const clearCart = () => {
+		setCartProducts([])
+		updateLocalStorage([])
+	};
 
 	const deleteProduct = (productId) => {
 		const newCart = cartProducts.filter((prd) => prd.id !== productId);
@@ -64,6 +67,7 @@ export const CartProvider = ({ children }) => {
                 setCartProducts(JSON.parse(clientCartData))
             }
         }
+		loadProducts(); 
 	}, []);
 
 	return (

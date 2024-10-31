@@ -16,7 +16,7 @@ export const ButtonReturn = styled(Link)`
     text-align: center;
     width: 3rem;
     position: absolute;
-    top: 0.8rem;
+    top: 5.5rem;
     left: 0.8rem;
     box-shadow:  0 0 1rem #9758a6;
     background-color: #9658a683;

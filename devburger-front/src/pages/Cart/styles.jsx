@@ -31,6 +31,7 @@ export const Title = styled.div`
     position: relative;
     &::after{
         position: absolute;
+        bottom: 0;
         left: calc(50% + -28px);
         content: '';
         width: 56px;
