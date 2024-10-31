@@ -4,6 +4,8 @@ import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import * as yup from "yup";
 import Logo from "../../assets/logo.svg";
+import { Button } from "../../components/Button";
+import { useUser } from "../../hooks/UserContext";
 import { api } from "../../services/api";
 import {
 	Container,
@@ -15,10 +17,9 @@ import {
 	Title,
 } from "./styles";
 
-import { Button } from "../../components/Button";
-
 export function Login() {
 	const navigate = useNavigate();
+	const { putUserData } = useUser();
 	const schema = yup
 		.object({
 			email: yup
@@ -40,10 +41,7 @@ export function Login() {
 
 	const onSubmit = async (data) => {
 		try {
-			const {
-				status,
-				data: { token },
-			} = await api.post(
+			const { status, data: userData } = await api.post(
 				"/session",
 				{
 					email: data.email,
@@ -54,7 +52,7 @@ export function Login() {
 
 			if (status === 200 || status === 201) {
 				toast.success("Seja Bem-vindo(a)");
-				localStorage.setItem("token", token);
+				putUserData(userData)
 				setTimeout(() => {
 					navigate("/");
 				}, 2000);

@@ -5,6 +5,7 @@ import { api } from "../../services/api";
 import { formatPrice } from "../../utils/formatPrice";
 import {
 	Banner,
+	ButtonReturn,
 	CategoryButton,
 	CategoryMenu,
 	Container,
@@ -65,6 +66,7 @@ export function Menu() {
 
 	return (
 		<Container>
+			<ButtonReturn to="/">👈</ButtonReturn>
 			<Banner>
 				<h1>
 					O MELHOR

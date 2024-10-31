@@ -10,6 +10,26 @@ export const Container = styled.div`
     background: linear-gradient( #ffffff7f,#ffffff7f), url(${Background});
 `;
 
+export const ButtonReturn = styled(Link)`
+    font-size: 2rem;
+    z-index: 1;
+    text-align: center;
+    width: 3rem;
+    position: absolute;
+    top: 0.8rem;
+    left: 0.8rem;
+    box-shadow:  0 0 1rem #9758a6;
+    background-color: #9658a683;
+    border-radius: 50%;
+    text-decoration: none;
+    transition: all 0.3s;
+    &:hover{
+        box-shadow:  0 0 1rem #61a120;
+        background-color: #61a12083;
+
+    }
+`
+
 export const Banner = styled.div`
     display: flex;
     align-items: center;
