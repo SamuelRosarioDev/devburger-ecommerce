@@ -1,10 +1,11 @@
 import { createBrowserRouter } from "react-router-dom";
+import { Footer } from "../components/Footer";
 import { Header } from "../components/Header";
+import { Cart } from "../pages/Cart";
 import { Home } from "../pages/Home";
 import { Login } from "../pages/Login";
 import { Menu } from "../pages/Menu";
 import { Register } from "../pages/Register";
-import { Footer } from "../components/Footer";
 
 export const routers = createBrowserRouter([
 	{
@@ -28,4 +29,5 @@ export const routers = createBrowserRouter([
 			</>
 		),
 	},
+	{ path: "/carrinho", element: <Cart /> },
 ]);
