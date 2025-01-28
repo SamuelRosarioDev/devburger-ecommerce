@@ -23,4 +23,4 @@ const OrderSchema = new mongoose.Schema(
 	},
 );
 
-export default mongoose.model('Order', OrderSchema)
+export default mongoose.model('Order', OrderSchema) // Na Coleção ele adiconará um 's' no final do nome do model

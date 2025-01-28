@@ -1,4 +1,7 @@
-module.exports = {
+import dotenv from 'dotenv';
+dotenv.config();
+
+export default {
 	dialect: 'postgres',
 	host: process.env.PG_HOST,
 	port: process.env.PG_PORT,
@@ -6,7 +9,7 @@ module.exports = {
 	password: process.env.PG_PASSWORD,
 	database: process.env.PG_DATABASE,
 	define: {
-	  timespamps: true,
+	  timestamps: true,
 	  underscored: true,
 	  underscoredAll: true,
 	},
