@@ -7,7 +7,7 @@ export const Container = styled.div`
     gap: 50px;
     padding: 20px;
     border-radius: 8px;
-    background-color: #fff;
+    background-color: ${({ theme }) => theme.white};
     box-shadow: 0 5px 30px rgb(0, 0, 0, 0.35);
     cursor: grab;
     position: relative;
@@ -20,14 +20,14 @@ export const Container = styled.div`
         gap: 5px;
         p{
             font-size: 18px;
-            color: #ff8c05;
+            color: ${({ theme }) => theme.orange};
             line-height: 20px;
             font-weight: 700;
             margin-top: 40px;
         }
         strong{
             font-size: 22px;
-            color: #363636;
+            color: ${({ theme }) => theme.black};
             font-weight: 800;
             line-height: 20px;
         }

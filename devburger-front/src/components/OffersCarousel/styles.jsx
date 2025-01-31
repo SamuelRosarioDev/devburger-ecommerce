@@ -16,12 +16,12 @@ export const Container = styled.div`
         top: 10px;
         right: 50px;
         background-color: #9658a6;
-        box-shadow: inset #f4f4f4 0px 0px 0.5rem 0px;
+        box-shadow: inset ${({ theme }) => theme.darkWhite} 0px 0px 0.5rem 0px;
     }
 
     .react-multiple-carousel__arrow--left{
-        background-color: #9758a6;
-        box-shadow: inset #f4f4f4 0px 0px 0.5rem 0px;
+        background-color: ${({ theme }) => theme.purple};
+        box-shadow: inset ${({ theme }) => theme.darkWhite} 0px 0px 0.5rem 0px;
         top: 10px;
         left: 10px;
     }
@@ -31,7 +31,7 @@ export const Container = styled.div`
 export const Title = styled.h2`
     font-size: 32px;
     font-weight: 800;
-    color: #61a120;
+    color: ${({ theme }) => theme.green};
     padding-bottom: 12px;
     position: relative;
     text-align: center;
@@ -43,7 +43,7 @@ export const Title = styled.h2`
         left: calc(50% - 28px);
         width: 56px;
         height: 4px;
-        background-color: #61a120;
+        background-color: ${({ theme }) => theme.green} ;
     }
 `;
 

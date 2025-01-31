@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 import styled from "styled-components";
 
 export const Container = styled.div`
-    background-color: #1f1f1f;
+    background-color: ${({ theme }) => theme.mainBlack};
     width: 100%;
     height: 72px;
     padding: 0 56px;
@@ -31,17 +31,17 @@ export const Navigation = styled.nav`
 
     hr{
         height: 24px;
-        border: 1px solid #625e5e;
+        border: 1px solid ${({ theme }) => theme.darkGray};
     }
 `;
 export const HeaderLink = styled(Link)`
-    color: ${(props) => (props.$isActive ? "#9758a6" : "#fff")};
-    border-bottom: ${(props) => (props.$isActive ? "1px solid  #9758a6" : "none")} ;
+    color: ${(props) => (props.$isActive ? ({ theme }) => theme.purple : ({ theme }) => theme.white)};
+    border-bottom: ${(props) => (props.$isActive ? `1px solid  ${({ theme }) => theme.purple}` : "none")} ;
     text-decoration: none;
     font-size: 14px;
     transition: color 0.2s;
     &:hover{
-        color: #9758a6;
+        color: ${({ theme }) => theme.purple};
     }
 `;
 export const Options = styled.div`
@@ -53,7 +53,7 @@ export const Options = styled.div`
 export const Logout = styled.button`
     background-color: transparent;
     border: none;
-    color: #ff3205;
+    color: ${({ theme }) => theme.red};
     text-decoration: none;
     font-weight: 700;
 `;
@@ -73,7 +73,7 @@ export const Profile = styled.div`
         align-items: self-start;
     }
     p{
-        color: #fff;
+        color: ${({ theme }) => theme.white};
         line-height: 90%;
         font-weight: 300;
         span{

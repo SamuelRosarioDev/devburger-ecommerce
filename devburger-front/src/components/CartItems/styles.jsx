@@ -17,13 +17,13 @@ export const Buttons = styled.button`
     height: 30px;
     width: 30px;
     border-radius: 4px;
-    background-color: #9758a6;
-    color: #fff;
+    background-color: ${({ theme }) => theme.purple};
+    color: ${({ theme }) => theme.white};
     transition: all 0.4s ;
     border: none;
 
     &:hover{
-        background-color: #6f357c;
+        background-color: ${({ theme }) => theme.secondDarkPurple};
     }
 `
 
