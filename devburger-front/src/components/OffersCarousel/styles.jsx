@@ -1,3 +1,6 @@
+import nextImgCarrouselOffer from '../../assets/nextOffer.png';
+import previousImgCarrouselOffer from '../../assets/previousOffer.png';
+
 import styled from "styled-components";
 
 export const Container = styled.div`
@@ -14,19 +17,42 @@ export const Container = styled.div`
 
     .react-multiple-carousel__arrow--right{
         top: 10px;
-        right: 50px;
-        background-color: #9658a6;
-        box-shadow: inset ${({ theme }) => theme.darkWhite} 0px 0px 0.5rem 0px;
+        right: 40px;
+        background-color: ${({ theme }) => theme.darkWhite};
+    }
+
+    .react-multiple-carousel__arrow--right:hover{
+        background-color: ${({ theme }) => theme.secondWhite};
     }
 
     .react-multiple-carousel__arrow--left{
-        background-color: ${({ theme }) => theme.purple};
-        box-shadow: inset ${({ theme }) => theme.darkWhite} 0px 0px 0.5rem 0px;
+
         top: 10px;
         left: 10px;
+        background-color: ${({ theme }) => theme.darkWhite};
+
+    }
+    .react-multiple-carousel__arrow--left:hover{
+        background-color: ${({ theme }) => theme.secondWhite};
     }
 
+    .react-multiple-carousel__arrow--right::before{
+        content: url(${nextImgCarrouselOffer});
+        transform: scale(0.55);
+        width: 100px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
 
+    .react-multiple-carousel__arrow--left::before{
+        content: url(${previousImgCarrouselOffer});
+        transform: scale(0.55);
+        width: 100px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
 `;
 export const Title = styled.h2`
     font-size: 32px;

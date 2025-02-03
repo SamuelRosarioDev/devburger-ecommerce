@@ -1,3 +1,6 @@
+import previousImgCarrouselCategory from "../../assets/previousImgCarrouselCategory.png";
+import nextImgCarrouselCategory from "../../assets/nextImgCarrouselCategory.png";
+
 import { Link } from "react-router-dom";
 import styled from "styled-components";
 export const Container = styled.div`
@@ -8,15 +11,31 @@ export const Container = styled.div`
     .react-multiple-carousel__arrow--right{
         top: 10px;
         right: 50px;
-        background-color: #9658a6;
-        box-shadow: inset ${({ theme }) => theme.darkWhite} 0px 0px 0.5rem 0px;
+        background-color: ${({ theme }) => theme.darkWhite};
+   }
+
+   .react-multiple-carousel__arrow--right::before{
+        content: url(${nextImgCarrouselCategory});
+        transform: scale(0.55);
+        width: 120px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
     }
 
     .react-multiple-carousel__arrow--left{
-        background-color: ${({ theme }) => theme.purple};
-        box-shadow: inset ${({ theme }) => theme.darkWhite} 0px 0px 0.5rem 0px;
+        background-color: ${({ theme }) => theme.darkWhite};
         top: 10px;
         left: 10px;
+    }
+
+    .react-multiple-carousel__arrow--left::before{
+        content: url(${previousImgCarrouselCategory});
+        transform: scale(0.55);
+        width: 120px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
     }
 
 `;

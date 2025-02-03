@@ -6,3 +6,5 @@ export * from './Menu'
 export * from './Checkout'
 export * from './CompletePayment'
 
+export * from './Admin'
+
