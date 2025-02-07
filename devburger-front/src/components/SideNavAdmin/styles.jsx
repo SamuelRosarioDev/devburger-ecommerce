@@ -26,6 +26,7 @@ export const NavLink = styled(Link)`
     padding: 12px 20px;
     text-decoration: none;
     color: ${({ theme }) => theme.white};
+    background-color: ${({ $isActive, theme }) => $isActive ? theme.purple : "transparent"};
 
     img{
         width: 1.5rem;
