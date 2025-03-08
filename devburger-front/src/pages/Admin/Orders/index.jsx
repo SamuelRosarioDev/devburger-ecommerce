@@ -17,9 +17,10 @@ export function Orders() {
 
     useEffect(() => {
         async function loadOrders() {
-            const { data } = await api.get('/orders')
+            const { data } = await api.get('orders')
             setOrders(data)
         }
+        loadOrders()
     }, [])
 
     function createData(order) {
@@ -52,7 +53,7 @@ export function Orders() {
                 </TableHead>
                 <TableBody>
                     {rows.map((row) => (
-                        <Row key={row._id} row={row} />
+                        <Row key={row.orderId} row={row} />
                     ))}
                 </TableBody>
             </Table>
