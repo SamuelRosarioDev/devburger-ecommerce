@@ -13,14 +13,24 @@ import { useState } from 'react';
 import { formatDate } from '../../../utils/formatDate';
 import { ProductImage, SelectStatus } from './styles';
 import { orderStatusOptions } from './orderStatus';
-import api from '../../../services/api';
+import { api } from "../../../services/api";
 
-export function Row(props) {
-    const { row } = props;
+export function Row({ row, orders, setOrders }) {
     const [open, setOpen] = useState(false);
-
+    const [loading, setLoading] = useState(false);
+    
     async function handleStatusChange(id, status) {
-        await api.put(`/orders/${row.id}`, { status });
+        try {
+            setLoading(true)
+            await api.put(`/orders/${id}`, { status });
+            const newOrders = orders.map(order => order._id === id ? { ...order, status } : order)
+            setOrders(newOrders)
+
+        } catch (error) {
+            console.log(error)
+        } finally {
+            setLoading(false)
+        }
     }
 
     return (
@@ -41,11 +51,13 @@ export function Row(props) {
                 <TableCell>{row.name}</TableCell>
                 <TableCell>{formatDate(row.date)}</TableCell>
                 <TableCell>
-                    <SelectStatus 
-                    options={orderStatusOptions.filter((status) => status.id !== 0)} 
-                    placeholder="Status..." 
-                    defaultInputValue={orderStatusOptions.find((status) => status.value === row.status || null).label}
-                    onChange={status => handleStatusChange(row.orderId, status.value)}
+                    <SelectStatus
+                        options={orderStatusOptions.filter((status) => status.id !== 0)}
+                        placeholder="Status..."
+                        defaultValue={orderStatusOptions.find((status) => status.value === row.status || null,)}
+                        onChange={status => handleStatusChange(row.orderId, status.value)}
+                        isLoading={loading}
+                        menuPortalTarget={document.body}
                     />
                 </TableCell>
             </TableRow>
