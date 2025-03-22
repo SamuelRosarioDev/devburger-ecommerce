@@ -61,6 +61,7 @@ export const ErrorMessage = styled.span`
     line-height: 80%;
     font-weight: 600;
 `
+
 export const ContainerCheckbox = styled.div`
     display: flex;
     gap: 10px;
